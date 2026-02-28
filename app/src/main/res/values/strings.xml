@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">InvoicePro</string>
+
+    <string-array name="product_list">
+
+        <item>प्रोडक्ट चुनें</item>
+        <item>हल्दी पाउडर</item>
+        <item>धनिया पाउडर</item>
+        <item>धनिया साबुत</item>
+        <item>जीरा</item>
+        <item>काला नमक</item>
+        <item>अजवाइन</item>
+        <item>लालमिर्च पाउडर</item>
+        <item>साबुतलाल मिर्च</item>
+        <item>मेथी दाना</item>
+        <item>सोंठ पाउडर</item>
+        <item>राई</item>
+        <item>अमचूर पाउडर</item>
+        <item>सौंफ खाने वाली</item>
+        <item>गरम मसाला</item>
+        <item>सेंधा नमक</item>
+        <item>कसूरी मेथी</item>
+        <item>काली मिर्च</item>
+        <item>लौंग</item>
+        <item>हरी इलायची</item>
+        <item>बड़ी इलायची</item>
+        <item>जायफल</item>
+        <item>कलौंजी</item>
+        <item>पीपली</item>
+        <item>तेज पत्ता</item>
+        <item>जावित्री</item>
+        <item>चक्र फूल</item>
+        <item>खाने का सोडा</item>
+        <item>दालचीनी गोलवाली</item>
+        <item>सफेद तिल</item>
+        <item>काले तिल</item>
+        <item>सेंधा लाहौरी नमक</item>
+        <item>बेसन</item>
+        <item>मल्टी ग्रेन आटा</item>
+        <item>मक्का आटा</item>
+        <item>बाजरा आटा</item>
+        <item>चने का आटा</item>
+        <item>M P आटा</item>
+
+    </string-array>
+
+</resources>
