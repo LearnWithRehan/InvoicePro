@@ -181,189 +181,55 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//    private void generatePDF() {
-//
-//        android.graphics.pdf.PdfDocument pdfDocument = new android.graphics.pdf.PdfDocument();
-//        android.graphics.Paint paint = new android.graphics.Paint();
-//        android.graphics.Paint titlePaint = new android.graphics.Paint();
-//
-//        android.graphics.pdf.PdfDocument.PageInfo pageInfo =
-//                new android.graphics.pdf.PdfDocument.PageInfo.Builder(1200, 2000, 1).create();
-//
-//        android.graphics.pdf.PdfDocument.Page page = pdfDocument.startPage(pageInfo);
-//        android.graphics.Canvas canvas = page.getCanvas();
-//
-//        int y = 50;
-//
-//        // ================= HEADER =================
-//        paint.setColor(android.graphics.Color.parseColor("#F57C00"));
-//        canvas.drawRect(0, 0, 1200, 180, paint);
-//
-//        paint.setColor(android.graphics.Color.WHITE);
-//        paint.setTextSize(30);
-//        paint.setFakeBoldText(true);
-//
-//        canvas.drawText("Kuhu The Annapurna Multigrain's & Spice's", 200, 70, paint);
-//        paint.setTextSize(22);
-//        canvas.drawText("331, Vill Sabli Hapur Uttar Pradesh", 200, 110, paint);
-//        canvas.drawText("9412121383", 200, 140, paint);
-//
-//        // LOGO
-//        android.graphics.Bitmap logo = android.graphics.BitmapFactory.decodeResource(getResources(), R.drawable.logo);
-//        canvas.drawBitmap(logo, 40, 30, null);
-//
-//        y = 220;
-//
-//        // ================= TITLE =================
-//        titlePaint.setTextAlign(android.graphics.Paint.Align.CENTER);
-//        titlePaint.setTextSize(40);
-//        titlePaint.setColor(android.graphics.Color.parseColor("#F57C00"));
-//        titlePaint.setFakeBoldText(true);
-//
-//        canvas.drawText("INVOICE", 600, y, titlePaint);
-//
-//        y += 60;
-//
-//        // ================= CUSTOMER =================
-//        paint.setColor(android.graphics.Color.BLACK);
-//        paint.setTextSize(25);
-//
-//        canvas.drawText("Bill To:", 40, y, paint);
-//        y += 40;
-//
-//        canvas.drawText(etCustomerName.getText().toString(), 40, y, paint);
-//        y += 35;
-//
-//        canvas.drawText(etCustomerAddress.getText().toString(), 40, y, paint);
-//        y += 35;
-//
-//        canvas.drawText(etCustomerMobile.getText().toString(), 40, y, paint);
-//
-//        y += 60;
-//
-//        // ================= TABLE HEADER =================
-//        paint.setColor(android.graphics.Color.parseColor("#F57C00"));
-//        canvas.drawRect(40, y, 1160, y + 50, paint);
-//
-//        paint.setColor(android.graphics.Color.WHITE);
-//        paint.setTextSize(24);
-//
-//        canvas.drawText("Sr", 60, y + 35, paint);
-//        canvas.drawText("Product", 150, y + 35, paint);
-//        canvas.drawText("Qty", 750, y + 35, paint);
-//        canvas.drawText("Rate", 850, y + 35, paint);
-//        canvas.drawText("Amount", 1000, y + 35, paint);
-//
-//        y += 60;
-//
-//        // ================= ITEMS =================
-//        paint.setColor(android.graphics.Color.BLACK);
-//
-//        for (InvoiceItem item : itemList) {
-//
-//            canvas.drawText(String.valueOf(item.getSrNo()), 60, y, paint);
-//            canvas.drawText(item.getProductName(), 150, y, paint); // ✅ FIXED
-//            canvas.drawText(String.format("%.2f Kg", item.getQty()), 750, y, paint);
-//            canvas.drawText(String.format("%.2f", item.getRate()), 850, y, paint);
-//            canvas.drawText(String.format("%.2f", item.getAmount()), 1000, y, paint);
-//
-//            y += 40;
-//        }
-//
-//        y += 30;
-//
-//        // ================= TOTAL =================
-//        paint.setFakeBoldText(true);
-//
-//        canvas.drawText("Total:", 750, y, paint);
-//        canvas.drawText("₹ " + String.format("%.2f", totalAmount), 1000, y, paint);
-//
-//        y += 40;
-//
-//        // ================= DISCOUNT =================
-//        double discount = etDiscount.getText().toString().isEmpty() ? 0 :
-//                Double.parseDouble(etDiscount.getText().toString());
-//
-//        canvas.drawText("Discount:", 750, y, paint);
-//        canvas.drawText("- ₹ " + String.format("%.2f", discount), 1000, y, paint);
-//
-//        y += 40;
-//
-//        // ================= NET =================
-//        double net = totalAmount - discount;
-//
-//        paint.setColor(android.graphics.Color.parseColor("#F57C00"));
-//
-//        canvas.drawText("Grand Total:", 750, y, paint);
-//        canvas.drawText("₹ " + String.format("%.2f", net), 1000, y, paint);
-//
-//        y += 100;
-//
-//        // ================= QR =================
-//        android.graphics.Bitmap qr = android.graphics.BitmapFactory.decodeResource(getResources(), R.drawable.qr);
-//        canvas.drawBitmap(qr, 500, y, null);
-//
-//        y += 250;
-//
-//        // ================= SIGN =================
-//        android.graphics.Bitmap sign = android.graphics.BitmapFactory.decodeResource(getResources(), R.drawable.sign);
-//        canvas.drawBitmap(sign, 900, y, null);
-//
-//        paint.setColor(android.graphics.Color.BLACK);
-//        paint.setTextSize(22);
-//        canvas.drawText("Signature", 920, y + 120, paint);
-//
-//        pdfDocument.finishPage(page);
-//
-//        // SAVE FILE
-////        java.io.File file = new java.io.File(
-////                android.os.Environment.getExternalStoragePublicDirectory(
-////                        android.os.Environment.DIRECTORY_DOWNLOADS),
-////                "Invoice.pdf"
-////        );
-//
-//        File fileinvo = new File(getExternalFilesDir(null), "Invoice.pdf");
-//
-//        try {
-//            pdfDocument.writeTo(new java.io.FileOutputStream(fileinvo));
-//            Toast.makeText(this, "PDF Saved in Downloads", Toast.LENGTH_LONG).show();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//      //  pdfDocument.close();
-//
-//
-//
-//
-//        try {
-//            File file = new File(getExternalFilesDir(null), "Invoice.pdf");
-//            pdfDocument.writeTo(new FileOutputStream(file));
-//            pdfDocument.close();
-//
-//            // 🔥 OPEN PDF
-//            androidx.core.content.FileProvider.getUriForFile(
-//                    this,
-//                    getPackageName() + ".provider",
-//                    file
-//            );
-//
-//            android.net.Uri uri = androidx.core.content.FileProvider.getUriForFile(
-//                    this,
-//                    getPackageName() + ".provider",
-//                    file
-//            );
-//
-//            Intent intent = new Intent(Intent.ACTION_VIEW);
-//            intent.setDataAndType(uri, "application/pdf");
-//            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//
-//            startActivity(intent);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+
+
+
+
+
+    // ================= NUMBER TO WORDS =================
+    private String convertToWords(int number) {
+
+        String[] units = {"", "One ", "Two ", "Three ", "Four ", "Five ",
+                "Six ", "Seven ", "Eight ", "Nine ", "Ten ", "Eleven ",
+                "Twelve ", "Thirteen ", "Fourteen ", "Fifteen ",
+                "Sixteen ", "Seventeen ", "Eighteen ", "Nineteen "};
+
+        String[] tens = {"", "", "Twenty ", "Thirty ", "Forty ",
+                "Fifty ", "Sixty ", "Seventy ", "Eighty ", "Ninety "};
+
+        if (number < 20)
+            return units[number];
+
+        if (number < 100)
+            return tens[number / 10] + units[number % 10];
+
+        if (number < 1000)
+            return units[number / 100] + "Hundred " +
+                    convertToWords(number % 100);
+
+        if (number < 100000)
+            return convertToWords(number / 1000) + "Thousand " +
+                    convertToWords(number % 1000);
+
+        if (number < 10000000)
+            return convertToWords(number / 100000) + "Lakh " +
+                    convertToWords(number % 100000);
+
+        return "Amount Too Large";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -555,6 +421,53 @@ public class MainActivity extends AppCompatActivity {
                 y,
                 paint
         );
+
+// ================= LEFT SIDE OUTSTANDING & AMOUNT IN WORDS =================
+
+        paint.setTextAlign(Paint.Align.LEFT);
+        paint.setColor(Color.BLACK);
+        paint.setTextSize(26);
+        paint.setFakeBoldText(true);
+
+// Left side X position
+        int leftX = 50;
+
+// Starting Y position (same level as Discount/Net section)
+        int leftY = y - 80;   // adjust if needed
+
+// 1️⃣ Tagline
+        canvas.drawText(
+                "मल्टीग्रेन और मसालों के स्वाद से हर खाने को खास बनाएं",
+                leftX,
+                leftY,
+                paint
+        );
+
+        leftY += 40;   // spacing
+
+// 2️⃣ Outstanding Payment
+        canvas.drawText(
+                "Total Outstanding Payment : ₹ " + String.format("%.2f", net),
+                leftX,
+                leftY,
+                paint
+        );
+
+        leftY += 40;   // spacing
+
+// 3️⃣ Amount in Words
+        paint.setFakeBoldText(false);
+        paint.setTextSize(24);
+
+        String amountInWords = convertToWords((int) net);
+
+        canvas.drawText(
+                "Amount In Words : " + amountInWords + " Rupees Only",
+                leftX,
+                leftY,
+                paint
+        );
+
 
         paint.setTextAlign(Paint.Align.LEFT);
 
